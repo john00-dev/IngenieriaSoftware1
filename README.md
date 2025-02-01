@@ -11,13 +11,13 @@
 
 #### DentApp 
 
-## Descripcion del objetivo del proyecto
+## Descripción del objetivo del proyecto
 
 Desarrollaremos una aplicación para gestionar citas odontológicas, facilitando la reserva, modificación y cancelación de consultas. Los pacientes podrán agendar citas de forma rápida y recibir recordatorios automáticos, mientras que los odontólogos optimizarán su agenda y reducirán cancelaciones. La app está enfocada en consultorios pequeños y medianos, con una interfaz sencilla y accesible. 
 
-## Tecnologias usadas
+## Tecnologías usadas
 
-### Lenguajes de programacion
+### Lenguajes de programación
 * Python
 * JavaScript
 ### Frameworks
