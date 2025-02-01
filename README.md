@@ -7,13 +7,13 @@
 * Juan David Suarez Coronado
 
 
-## Nombre del proyecto: falta
+## Nombre del proyecto: 
 
-(icono opcional)
+###DentApp 
 
 ## Descripcion del objetivo del proyecto
 
-Desarrollaremos una aplicación para gestionar citas odontológicas, facilitando la reserva, modificación y cancelación de consultas. Los pacientes podrán agendar citas de forma rápida y recibir recordatorios automáticos, mientras que los odontólogos optimizarán su agenda y reducirán cancelaciones. La app está enfocada en consultorios pequeños y medianos, con una interfaz sencilla y accesible. Además de crear una solución útil, el equipo ganará experiencia en desarrollo y gestión de software
+Desarrollaremos una aplicación para gestionar citas odontológicas, facilitando la reserva, modificación y cancelación de consultas. Los pacientes podrán agendar citas de forma rápida y recibir recordatorios automáticos, mientras que los odontólogos optimizarán su agenda y reducirán cancelaciones. La app está enfocada en consultorios pequeños y medianos, con una interfaz sencilla y accesible. 
 
 ## Tecnologias usadas
 
