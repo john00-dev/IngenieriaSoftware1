@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirigiendo...</title>
+</head>
+<body>
+    <script>
+        var params = new URLSearchParams(window.location.hash.substring(1));
+        var token = params.get("id_token");
+
+        if (token) {
+            localStorage.setItem("auth_token", token);
+            window.location.replace("http://localhost:8000/auth/logout/");
+
+        } else {
+            document.body.innerHTML = "<h1>Error en la autenticación</h1>";
+        }
+    </script>
+</body>
+</html>

@@ -54,6 +54,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    #generar permisos de autenticacion
+    #'authentication.middleware.Auth0Middleware',
 ]
 
 ROOT_URLCONF = 'doctorapp.urls'
@@ -132,6 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 #organizar endpoints en documentacion
@@ -141,6 +147,7 @@ SPECTACULAR_SETTINGS = {
 
 import os
 
+#Utilizar las carpetas de templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -156,3 +163,7 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH0_DOMAIN = "dev-erjhxr8xbc7zjjg6.us.auth0.com"  # Dominio de Auth0
+API_IDENTIFIER = "https://auth0/api"      # API en Auth0
+JWT_ISSUER = f"https://{AUTH0_DOMAIN}/"

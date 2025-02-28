@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Login con Auth0</title>
+    <script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
 </head>
 <body>
-    <h1>Bienvenido</h1>
-    <a href="{% url 'login_redirect' %}">
-        <button>Iniciar sesión con Auth0</button>
-    </a>
+    <h1>Pagina Iniciar Sesión</h1>
+    <button id="login">Login con Auth0</button>
+
+    <script>
+        var auth0 = new auth0.WebAuth({
+            domain: "dev-erjhxr8xbc7zjjg6.us.auth0.com",
+            clientID: "UHmFwgTjEPfQcXRRhRX0CFWWOfw00ihB",
+            redirectUri: "http://localhost:8000/auth/callback/",//a donde se redirije despues de logearse
+            responseType: "token id_token",
+            scope: "openid profile email"
+        });
+
+        document.getElementById("login").addEventListener("click", function() {
+            auth0.authorize();
+        });
+    </script>
 </body>
 </html>
