@@ -7,9 +7,11 @@ from .views import (
     DetailInsuranceView,
     ListMedicalRecordView,
     DetailMedicalRecordView,
+    PatientHomeView,
 )
 
 urlpatterns = [
+    path('homepatients', PatientHomeView.as_view()),
     path('patients/', ListPatientView.as_view()),
     path('patients/<int:pk>/', DetailPatientView.as_view()),
     path('insurances/', ListInsuranceView.as_view()),

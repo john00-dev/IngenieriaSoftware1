@@ -54,9 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    #generar permisos de autenticacion
-    #'authentication.middleware.Auth0Middleware',
 ]
 
 ROOT_URLCONF = 'doctorapp.urls'
