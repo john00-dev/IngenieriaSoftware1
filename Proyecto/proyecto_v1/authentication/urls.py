@@ -9,7 +9,7 @@ from .views import (
 
 urlpatterns = [
     path('login/', login_page, name='login_page'),
-    path('auth/login/', login_redirect, name='login_redirect'),
+    path('redirect/', login_redirect, name='login_redirect'),
     path("callback/", callback_view, name="callback"),
     path('logout/', logout_view, name='logout'),
 ]

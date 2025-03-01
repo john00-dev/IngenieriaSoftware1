@@ -13,7 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Vista para la página de inicio del paciente
 class PatientHomeView(LoginRequiredMixin, TemplateView):
     template_name = 'patients/patient_home.html'
-    login_url = "/auth/login/"  # Redirige a la página de login si no está autenticado
+    login_url = "/auth/redirect/"  # Redirige a la página de login si no está autenticado
     redirect_field_name = "next"  # Opcional, permite redirigir después de iniciar sesión
 
 

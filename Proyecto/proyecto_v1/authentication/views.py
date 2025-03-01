@@ -5,7 +5,7 @@ def login_page(request):
     return render(request, 'authentication/login.html')
 
 def login_redirect(request):
-    return HttpResponse("¡Has iniciado sesión correctamente!")
+    return render(request, 'transitions/redirect-to-login.html')
 
 def callback_view(request):
     return render(request, "authentication/callback.html")
