@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Paciente</title>
+</head>
+<body>
+    <h2>Registro de Paciente</h2>
+    <form id="patientForm">
+        <label>Nombre: <input type="text" name="first_name" required></label><br><br>
+        <label>Apellido: <input type="text" name="last_name" required></label><br><br>
+        <label>Fecha de Nacimiento: <input type="date" name="date_of_birth" required></label><br><br>
+        <label>Número de Contacto: <input type="tel" name="contact_number" required></label><br><br>
+        <label>Correo Electrónico: <input type="email" name="email" required></label><br><br>
+        <label>Dirección: <textarea name="address" required></textarea></label><br><br>
+        <label>Historial Médico: <textarea name="medical_history" required></textarea></label><br><br>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <script>
+        document.getElementById('patientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+            let jsonData = {};
+            formData.forEach((value, key) => jsonData[key] = value);
+
+            fetch('/api/patients/', {  // Ajusta la URL según tu configuración
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Paciente registrado con éxito');
+                handleRedirect();  // Redirigir 
+            })
+            .catch(error => alert('Error al registrar paciente'));
+        });
+
+        function handleRedirect() {
+            window.location.href = '/api/patients';  // Redirigir a la página deseada
+        }
+    </script>
+</body>
+</html>
