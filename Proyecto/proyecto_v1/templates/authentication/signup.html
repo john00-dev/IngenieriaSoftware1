@@ -10,8 +10,14 @@
 
     <form method="POST">
         {% csrf_token %}
+        <label>Cédula: <input type="text" name="id" required></label><br><br>
         <label>Usuario: <input type="text" name="username" required></label><br><br>
         <label>Contraseña: <input type="password" name="password" required></label><br><br>
+        <label>Rol:</label>
+        <select name="role" required>
+            <option value="patient">Paciente</option>
+            <option value="doctor">Doctor</option>
+        </select><br>
         <button type="submit">Registrarse</button>
     </form>
 

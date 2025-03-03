@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegir Registro</title>
+</head>
+<body>
+    <h1>Elige tu tipo de registro</h1>
+    <!-- Botón para registrarse como paciente -->
+    <button onclick="window.location.href='{% url 'register_patient' %}'">Registrarse como Paciente</button>
+    <!-- Botón para registrarse como doctor -->
+    <button onclick="window.location.href='{% url 'register_doctor' %}'">Registrarse como Doctor</button>
+</body>
+</html>

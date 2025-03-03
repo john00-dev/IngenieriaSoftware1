@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Paciente</title>
+    <title>Registro de Doctor</title>
 </head>
 <body>
-    <h2>Registro de Paciente</h2>
-    <form id="patientForm" action="/api/create_patient/" method="POST">
+    <h2>Registro de Doctor</h2>
+    <form id="doctorForm" form action="/api/create/" method="POST">
         {% csrf_token %}
-        
-        <label>Cédula:</label> <span>{{ id }}</span><br><br>
-        <input type="hidden" name="id" value="{{ id }}" readonly>
+        <label>Cédula:</label> <span>{{ id_number }}</span><br><br>
+        <input type="hidden" name="id" value="{{ id_number }}">
         <label>Nombre: <input type="text" name="first_name" required></label><br><br>
         <label>Apellido: <input type="text" name="last_name" required></label><br><br>
-        <label>Fecha de Nacimiento: <input type="date" name="date_of_birth" required></label><br><br>
+        <label>Calificación: <input type="text" name="qualification" required></label><br><br>
         <label>Número de Contacto: <input type="tel" name="contact_number" required></label><br><br>
         <label>Correo Electrónico: <input type="email" name="email" required></label><br><br>
         <label>Dirección: <textarea name="address" required></textarea></label><br><br>
-        <label>Historial Médico: <textarea name="medical_history" required></textarea></label><br><br>
+        <label>Biografía: <textarea name="biography" required></textarea></label><br><br>
         <button type="submit">Guardar</button>
     </form>
+
 </body>
 </html>

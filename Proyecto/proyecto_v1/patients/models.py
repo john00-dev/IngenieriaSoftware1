@@ -1,7 +1,14 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Patient(models.Model):
+    id = models.BigIntegerField(
+        primary_key=True,
+        validators=[
+            MinValueValidator(0),  # Asegura que el valor no sea negativo
+            MaxValueValidator(9999999999)  # Asegura que el valor no exceda 10 dígitos
+        ]
+    )  # id manual (tratado como cédula, solo números)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
