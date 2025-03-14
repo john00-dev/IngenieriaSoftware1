@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Doctor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Asegurar que el contenido esté centrado en la pantalla */
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* Centrar texto */
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: auto; /* Asegura que todo el contenido pueda desplazarse si es necesario */
+        }
+
+        /* Estilo para el encabezado */
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Estilo del formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* Asegura que los campos ocupen todo el ancho del formulario */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            overflow-y: auto; /* Permite el desplazamiento si el contenido es más grande que la ventana */
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos responsivos para pantallas pequeñas */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px; /* Reducir padding en pantallas pequeñas */
+            }
+
+            h2 {
+                font-size: 1.5rem; /* Reducir tamaño de fuente del encabezado */
+            }
+
+            button {
+                padding: 10px 20px; /* Ajustar tamaño del botón */
+            }
+        }
+
+        /* Asegura que el formulario sea accesible en dispositivos muy pequeños */
+        @media (max-width: 400px) {
+            .center-container {
+                padding: 5px;
+                height: auto; /* Asegura que no se corte el contenido */
+                overflow: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-container">
+        <div>
+            <h2>Registro de Doctor</h2>
+            <form id="doctorForm" action="/api/create/" method="POST">
+                {% csrf_token %}
+                <label>Cédula:</label> <span>{{ id_number }}</span><br><br>
+                <input type="hidden" name="id" value="{{ id_number }}">
+                <label>Nombre: <input type="text" name="first_name" required></label><br><br>
+                <label>Apellido: <input type="text" name="last_name" required></label><br><br>
+                <label>Especialidad: <input type="text" name="qualification" required></label><br><br>
+                <label>Número de Contacto: <input type="tel" name="contact_number" required></label><br><br>
+                <label>Correo Electrónico: <input type="email" name="email" required></label><br><br>
+                <label>Dirección: <textarea name="address" required></textarea></label><br><br>
+                <label>Biografía: <textarea name="biography" required></textarea></label><br><br>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,23 +1,23 @@
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from rest_framework.generics import (
     ListAPIView,
     CreateAPIView,
     RetrieveUpdateDestroyAPIView,
 )
-from django.views.decorators.csrf import csrf_exempt
-from .serializers import PatientSerializer, InsuranceSerializer, MedicalRecordSerializer
-from .models import Patient, Insurance, MedicalRecord
-from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework.permissions import IsAuthenticated
-from django.shortcuts import render, redirect
-from .models import Patient
 
+from .models import Patient, Insurance, MedicalRecord
+from .serializers import PatientSerializer, InsuranceSerializer, MedicalRecordSerializer
+
+# Vistas para renderizar templates HTML
 def register_patient(request):
     id = request.GET.get("id")  # Obtiene el ID de la URL
     print("ID recibido:", id)  # Verifica en la terminal
     return render(request, "authentication/register.html", {"id": id})
-
-
 
 
 def create_patient(request):
@@ -48,18 +48,15 @@ def create_patient(request):
     return render(request, 'create_patient.html')
 
 
-
-
 def home(request):
     return render(request, 'home.html')
+
 
 def choose_register(request):
     return render(request, 'choose_register.html')
 
 
-
-
-
+# Vistas para la API
 class PatientHomeView(LoginRequiredMixin, TemplateView):
     template_name = 'patients/patient_home.html'
     permission_classes = [IsAuthenticated]
@@ -70,6 +67,7 @@ class ListPatientView(ListAPIView, CreateAPIView):
     allowed_methods = ['GET', 'POST']
     serializer_class = PatientSerializer
     queryset = Patient.objects.all()
+
 
 class DetailPatientView(RetrieveUpdateDestroyAPIView):
     allowed_methods = ['GET', 'PUT', 'DELETE']

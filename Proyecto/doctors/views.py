@@ -26,6 +26,7 @@ def register_doctor(request):
     id_number = request.GET.get('id')  # Obtener la cédula del query param
     return render(request, 'authentication/register_doctor.html', {'id_number': id_number})
 
+
 def create_doctor(request):
     if request.method == 'POST':
         # Obtener los datos del formulario
@@ -59,10 +60,12 @@ def create_doctor(request):
     # Si no es una solicitud POST, redirigir al formulario de registro
     return redirect('register_doctor')
 
+
 class DoctorHomeView(LoginRequiredMixin, TemplateView):
     template_name = 'doctors/doctors_home.html'
     permission_classes = [IsAuthenticated]
     login_url = '/auth/login'
+
 
 class ListDoctorView(ListAPIView, CreateAPIView):
     allowed_methods = ['GET', 'POST']
